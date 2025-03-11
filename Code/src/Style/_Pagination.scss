@@ -1,0 +1,28 @@
+.pagination {
+	list-style: none;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 5px;
+	font-size: 1.2rem;
+	margin-top: 3rem;
+  
+	* {
+	  color: #000; // Set text color to black
+	}
+  
+	.page-num {
+	  padding: 0.4rem;
+	  border-radius: 5px;
+	  cursor: pointer;
+	  
+	  &:hover {
+		background-color: #ff6f61; // Light red on hover
+	  }
+	}
+  
+	.active {
+	  background-color: #ff6f61; // Light red for active page
+	}
+  }
+  

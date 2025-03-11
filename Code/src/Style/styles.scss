@@ -1,0 +1,225 @@
+@import "_config";
+@import "_sidebar";
+@import "_CurrencyTable";
+@import "_Pagination";
+
+$base-color: #ffffff;  // White color for background
+$secondary-color: #ff8a80;  // Light red color
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  color: #000; // Set all text to black by default
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: darken($base-color, 10%); // Background color stays darkened
+  color: #000; // Ensure body text is black
+}
+
+.App {
+  display: flex;
+  min-height: 100vh;
+
+  .main {
+    flex-basis: 70%;
+    margin: 2rem;
+
+    section {
+      background-color: $base-color;
+      border-radius: 1rem;
+      padding: 1rem;
+      margin: 1rem;
+
+      .intervals {
+        display: flex;
+        margin: 1rem;
+        gap: 10px;
+
+        .interval-btn {
+          padding: 5px;
+          border-radius: 4px;
+          border: none;
+          outline: none;
+          background-color: lighten($secondary-color, 10%);
+          color: #000; // Ensure interval button text is black
+          box-shadow: 1px 1px 5px $secondary-color;
+          transition: 0.4s;
+
+          &:hover {
+            box-shadow: 3px 3px 5px lighten($secondary-color, 10%);
+            background-color: $secondary-color;
+            color: #fff; // Change text to white when hovered
+          }
+        }
+
+        .active {
+          box-shadow: 3px 3px 5px lighten($secondary-color, 10%);
+          background-color: $secondary-color;
+          color: #000; // Black text for active state
+        }
+      }
+    }
+  }
+}
+
+.search-box {
+  width: 100%;
+  position: relative;
+
+  input {
+    width: 100%;
+    padding: 13px;
+    font-size: 1rem;
+    background-color: #fff; // White background for input field
+    border: none;
+    outline: none;
+    color: #000; // Black text inside the search bar
+    border-radius: 5px;
+  }
+
+  .suggestion-box {
+    position: absolute;
+    top: 3rem;
+    width: 100%;
+    list-style: none;
+    background-color: #ff8a80; // Light red background for suggestion box
+    color: #000; // Black text for suggestions
+    padding: 0;
+    margin-top: 0.5rem;
+    border-radius: 5px;
+    overflow: hidden;
+
+    li {
+      padding: 7px 10px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: #ff6f61; // Slightly darker light red on hover
+        color: #fff; // Change text to white on hover
+      }
+    }
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+
+  h3 {
+    font-size: 1.6rem;
+    color: #000; // Ensure heading text is black
+  }
+
+  h4 {
+    font-size: 1.2rem;
+    color: #000; // Ensure subtitle text is black
+  }
+}
+
+.currency-table {
+  color: #000; // Ensure the currency table's text is black by default
+
+  .cost,
+  .price,
+  .timing {
+    color: #000; // Make sure all cost and timing text is black
+  }
+
+  .cost-cell {
+    color: #000; // Black cost value
+  }
+}
+
+.line-chart {
+  .chart-labels,
+  .chart-timing {
+    color: #000; // Ensure chart labels are black
+  }
+
+  .chart-text {
+    color: #000; // Ensure chart-related text is black
+  }
+}
+
+.currency-table {
+  .coin-item {
+    color: #000; // Default text color for coins
+    transition: color 0.3s ease; // Smooth transition for text color change
+
+    &:hover {
+      color: #ff6f61; // Change text color to light red on hover
+    }
+  }
+
+  .cost-cell {
+    color: #000; // Black cost value by default
+
+    &:hover {
+      color: #ff6f61; // Change cost text color to light red on hover
+    }
+  }
+}
+
+button {
+  color: #000; // Black text color for buttons
+  background-color: #ff6f61;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &:hover {
+    background-color: lighten(#ff6f61, 10%);
+    color: #fff; // Change text to white when button is hovered
+  }
+}
+/* General styles for currency history */
+.currency-history {
+  margin-top: 20px;
+}
+
+.history-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.history-table th,
+.history-table td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Specific styles to ensure date, time, and currency value are black */
+.history-table .history-date,
+.history-table .history-time,
+.history-table .history-value {
+  color: #000 !important;  /* Force text color to black */
+}
+
+/* Ensure headers are in black */
+.history-table th {
+  font-weight: bold;
+  color: #000 !important; /* Force header text color to black */
+}
+
+/* Hover effect for rows */
+.history-table tr:hover {
+  background-color: #f1f1f1; /* Light gray background on row hover */
+}
+
+/* When no history is available */
+.currency-history .no-history {
+  color: #000; /* Black text when no history is available */
+  font-size: 1.2rem;
+  text-align: center;
+}
